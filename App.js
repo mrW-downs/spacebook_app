@@ -1,20 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Login from './screens/Login';
+import Signup from './screens/Signup';
+import Home from './screens/Home';
+import logout from './screens/logout';
+import Profile from './screens/Profile';
+import Edit from './screens/Edit';
 
-export default function App() {
+function Homescreen() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
+      onPress={() => navigation.navigate('Login')}
     </View>
   );
 }
+function LoginScreen() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Login!</Text>
+        onPress={() => navigation.navigate('Signup')}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+       
+      </View>
+    );
+  }
+
+
+const nav = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      
+      <nav.Navigator> 
+        <nav.Screen name="Login" component={Login} />
+        <nav.Screen name="Signup" component={Signup} />
+        <nav.Screen name="Home" component={Home} />
+        <nav.Screen name="Logout" component={logout} />
+        <nav.Screen name="Profile" component={Profile} />
+        <nav.Screen name="Edit" component={Edit} />
+        </nav.Navigator>
+
+     
+    </NavigationContainer>
+  );
+}
+
