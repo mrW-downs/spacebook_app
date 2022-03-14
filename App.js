@@ -8,6 +8,7 @@ import Home from './screens/Home';
 import logout from './screens/logout';
 import Profile from './screens/Profile';
 import Edit from './screens/Edit';
+import Camerapp from './screens/Camerapp';
 
 function Homescreen() {
   return (
@@ -42,6 +43,8 @@ export default function App() {
         <nav.Screen name="Logout" component={logout} />
         <nav.Screen name="Profile" component={Profile} />
         <nav.Screen name="Edit" component={Edit} />
+        <nav.Screen name="Camera" component={Camerapp} />
+
         </nav.Navigator>
 
      
