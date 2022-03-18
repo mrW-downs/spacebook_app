@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ScrollView, TextInput } from 'react-native';
+import { Button, View, TextInput,StyleSheet,Image} from 'react-native';
 
 class SignupScreen extends Component{
     constructor(props){
@@ -43,39 +43,82 @@ class SignupScreen extends Component{
 
     render(){
         return (
-            <ScrollView>
+           <View style={styles.container}>
+                 <Image
+                style={styles.rocket}
+        
+          source={require("./rocket.png")}
+        />      
+               
+             
                 <TextInput
+                   style={styles.Text}
                     placeholder="Enter your first name..."
                     onChangeText={(first_name) => this.setState({first_name})}
                     value={this.state.first_name}
-                    style={{padding:5, borderWidth:1, margin:5}}
                 />
                 <TextInput
+                    style={styles.Text}
                     placeholder="Enter your last name..."
                     onChangeText={(last_name) => this.setState({last_name})}
                     value={this.state.last_name}
-                    style={{padding:5, borderWidth:1, margin:5}}
+                   
                 />
                 <TextInput
+                    style={styles.Text}
                     placeholder="Enter your email..."
                     onChangeText={(email) => this.setState({email})}
                     value={this.state.email}
-                    style={{padding:5, borderWidth:1, margin:5}}
+                   
                 />
                 <TextInput
+                     style={styles.Text}
                     placeholder="Enter your password..."
                     onChangeText={(password) => this.setState({password})}
                     value={this.state.password}
                     secureTextEntry
-                    style={{padding:5, borderWidth:1, margin:5}}
                 />
                 <Button
-                    title="Create an account"
+                    title="SignUp"
                     onPress={() => this.signup()}
                 />
-            </ScrollView>
+             
+            </View>
         )
     }
 }
+const styles = StyleSheet.create({
+    
+ Button:{
+    backgroundColor: 'orange',
+     fontSize: 15,
+
+    
+ },
+ rocket:{
+    height: 200,
+    width: 200
+   
+},
+ container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection:'column',
+    padding:'5',
+    backgroundColor: 'darkslateblue'
+  },
+  Text:{
+    margin: 10,
+    height: 35,
+    borderWidth: 1,
+    padding: 7,
+
+
+  }
+
+
+
+})
 
 export default SignupScreen;

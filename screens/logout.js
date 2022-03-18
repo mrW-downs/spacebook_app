@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, Button } from 'react-native';
+import { Text, View, Button,StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 class HomeScreen extends Component{
@@ -56,11 +56,12 @@ class HomeScreen extends Component{
 
     render(){
         return (
-            <ScrollView>
-                <Text style={{fontSize:18, fontWeight:'bold', padding:5, margin:5}}>Have you finished exploring the depths of Spacebook</Text>
-                <Text style={{fontSize:18, fontWeight:'bold', padding:5, margin:5}}>Are you sure you want to leave?</Text>
+            
+            <View style={styles.container}>
+                <Text> Have you finished exploring the depths of Spacebook</Text>
+                <Text> Are you sure you want to leave?</Text>
                 <Button
-                    title="Houston The Eagle Has Landed! (Logout)"
+                    title="Logout"
                     onPress={() => this.logout()}
                 />
                 <Button
@@ -68,9 +69,32 @@ class HomeScreen extends Component{
                     color="darkblue"
                     onPress={() => this.props.navigation.navigate("Home")}
                 />
-            </ScrollView>
+            </View>
         )
     }
 }
+const styles = StyleSheet.create({
+    Button:{
+      backgroundColor: 'orange',
+      fontSize: 15,
+        
+     },
+
+    container: {
+       flex: 1,
+       justifyContent: 'center',
+       alignItems: 'center',
+       flexDirection:'column',
+       padding:'5',
+       backgroundColor: 'darkslateblue'
+     },
+     Text:{
+       margin: 10,
+       height: 35,
+       borderWidth: 1,
+       padding: 7,
+       fontWeight:'bold'
+     }
+})
 
 export default HomeScreen;
