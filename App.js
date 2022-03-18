@@ -9,6 +9,10 @@ import logout from './screens/logout';
 import Profile from './screens/Profile';
 import Edit from './screens/Edit';
 import Camerapp from './screens/Camerapp';
+import Friends from './screens/friends';
+import Friendrequest from './screens/friendrequest';
+import CreatePost from './screens/CreatePost';
+
 
 function Homescreen() {
   return (
@@ -44,6 +48,10 @@ export default function App() {
         <nav.Screen name="Profile" component={Profile} />
         <nav.Screen name="Edit" component={Edit} />
         <nav.Screen name="Camera" component={Camerapp} />
+        <nav.Screen name="Friends" component={Friends} />
+        <nav.Screen name="Friend Requests" component={Friendrequest} />
+        <nav.Screen name="CreatePost" component={CreatePost} />
+
 
         </nav.Navigator>
 
